@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demo Bank</title>
+  <style>
+    body { font-family: Arial; background:#0b1f3a; color:white; text-align:center; }
+    .container { margin-top:100px; }
+    input { padding:10px; margin:5px; width:250px; }
+    button { padding:10px 20px; background:#1e90ff; color:white; border:none; cursor:pointer; }
+    .card { background:white; color:black; padding:20px; border-radius:10px; width:300px; margin:auto; }
+  </style>
+</head>
+<body>
+
+<div id="login" class="container">
+  <h2>Demo Bank Login</h2>
+  <p><b>⚠ Demo Only - Not a Real Bank</b></p>
+  <input type="text" id="username" placeholder="Account Name"><br>
+  <input type="password" id="password" placeholder="Password"><br>
+  <button onclick="login()">Login</button>
+</div>
+
+<div id="dashboard" class="container" style="display:none;">
+  <div class="card">
+    <h2>Welcome, Silas Ambrose</h2>
+    <p><b>Phone:</b> +17608788666</p>
+    <h3>Balance: $2,000,000</h3>
+    <button onclick="withdraw()">Withdraw</button>
+    <p id="message" style="color:red; margin-top:10px;"></p>
+  </div>
+</div>
+
+<script>
+function login() {
+  let user = document.getElementById("username").value;
+  let pass = document.getElementById("password").value;
+
+  if(user.toLowerCase() === "silas ambrose" && pass === "Ambrose1122"){
+    document.getElementById("login").style.display = "none";
+    document.getElementById("dashboard").style.display = "block";
+  } else {
+    alert("Invalid login details");
+  }
+}
+
+function withdraw(){
+  document.getElementById("message").innerText = "Your account has been restricted. You need to visit the nearest bank to reopen your account.";
+}
+</script>
+
+</body>
+</html>
